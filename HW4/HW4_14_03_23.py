@@ -23,7 +23,7 @@ while True:
             print("You write number. \n")
             break
         case input_str if input_str.isalpha:
-            print("Your write a text.")
+            print("Your write a text. \n")
             break
 
 
