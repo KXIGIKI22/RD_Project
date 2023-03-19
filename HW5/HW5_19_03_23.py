@@ -9,7 +9,7 @@ for char in text:
             print(f'its number {char} - odd')
     elif char.isalpha():
         if char.isupper():
-            print(f'its word {char} - large')
+            print(f'its word {char} - Large')
         else:
             print(f'its word {char} - smalL')
     else:
