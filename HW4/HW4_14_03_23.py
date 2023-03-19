@@ -24,6 +24,6 @@ while True:
             break
         case input_str if input_str.isalpha:
             print("Your write a text.")
-            brea
+            break
 
 
