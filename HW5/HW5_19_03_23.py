@@ -11,7 +11,7 @@ for char in text:
         if char.isupper():
             print(f'its word {char} - Large')
         else:
-            print(f'its word {char} - smalL')
+            print(f'its word {char} - SmalL')
     else:
         print('its symbol', char)
 
