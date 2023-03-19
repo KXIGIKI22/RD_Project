@@ -4,7 +4,7 @@ text = input("Type your text: ")
 for char in text:
     if char.isdigit():
         if int(char) % 2 == 0:
-            print(f'its number {char} - even')
+            print(f'its number {char} - Even')
         else:
             print(f'its number {char} - Odd')
     elif char.isalpha():
