@@ -6,7 +6,7 @@ for char in text:
         if int(char) % 2 == 0:
             print(f'its number {char} - even')
         else:
-            print(f'its number {char} - odd')
+            print(f'its number {char} - Odd')
     elif char.isalpha():
         if char.isupper():
             print(f'its word {char} - Large')
