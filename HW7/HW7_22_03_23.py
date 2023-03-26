@@ -8,7 +8,7 @@ def add(name, number):
         phone_book[name] = number
         print("Record added successfully!")
     else:
-        print("Record already exists!")
+        print("Record already exists")
 
 def delete(name):
     if name in phone_book:
