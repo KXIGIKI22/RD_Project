@@ -14,4 +14,11 @@ def unique_elements(set1, set2):
 unique = unique_elements(set1, set2)
 print(unique)
 
-#Завдання 3
+#Завдання 4
+def is_number(x):
+    return isinstance(x, (int, float, complex))
+def filter_numbers(arr):
+    return list(filter(is_number, arr))
+arr = [1, "a", 2, 5, "b", 3, "c"]
+numbers = filter_numbers(arr)
+print(numbers)
