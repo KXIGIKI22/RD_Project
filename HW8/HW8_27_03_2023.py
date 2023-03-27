@@ -15,10 +15,7 @@ unique = unique_elements(set1, set2)
 print(unique)
 
 #Завдання 4
-def is_number(x):
-    return isinstance(x, (int, float, complex))
-def filter_numbers(arr):
-    return list(filter(is_number, arr))
-arr = [1, "a", 2, 5, "b", 3, "c"]
-numbers = filter_numbers(arr)
-print(numbers)
+def filter_numbers(array):
+    return list(filter(lambda x: isinstance(x, (int, float)), array))
+my_array = [1, "RobotDreams", 2, 5, "Python", 3, "4"]
+print(filter_numbers(my_array))
