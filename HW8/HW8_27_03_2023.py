@@ -13,3 +13,5 @@ def unique_elements(set1, set2):
     return list(unique)
 unique = unique_elements(set1, set2)
 print(unique)
+
+#Завдання 3
