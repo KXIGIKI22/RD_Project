@@ -30,7 +30,6 @@ def log_exception(exception):
 
 
 def validate_phone_number(number):
-    # Перевіряємо формат номера за допомогою регулярного виразу
     pattern = r"^(?:\+38|38|0)?\d{9,10}$"
     return re.match(pattern, number)
 
