@@ -2,6 +2,7 @@ import json
 import os
 import traceback
 from datetime import datetime
+import re
 
 
 FILE_NAME = "phone_book.json"
@@ -28,6 +29,11 @@ def log_exception(exception):
         traceback.print_exc(file=f)
 
 
+def validate_phone_number(number):
+    pattern = r"^(?:\+38|38|0)?\d{9,10}$"
+    return re.match(pattern, number)
+
+
 class PhoneBookException(Exception):
     def __init__(self, message):
         self.message = message
@@ -47,10 +53,8 @@ while True:
     elif command == "add":
         name = input("Введіть імя: ")
         number = input("Введіть номер: ")
-        try:
-            int(number)
-        except ValueError:
-            error_message = "Номер телефону має бути числом!"
+        if not validate_phone_number(number):
+            error_message = "Неправильний формат номера телефону!"
             log_exception(error_message)
             raise PhoneBookException(error_message)
 
