@@ -35,7 +35,6 @@ class TelegramBot(Bot):
         self.chat_id = chat_id
 
 
-# Приклад використання
 
 some_bot = Bot('Marvin')
 some_bot.say_name()
