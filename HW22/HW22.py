@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect("/Users/pavlo/Documents/database_1.sqlite")
+conn = sqlite3.connect("/Users/pavlo/Documents/Python/database_1.sqlite")
 cursor = conn.cursor()
 
 # Запит 1: Вибір усіх записів із таблиці users старше 30 років
