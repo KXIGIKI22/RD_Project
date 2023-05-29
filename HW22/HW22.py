@@ -38,7 +38,7 @@ for row in result4:
 query5 = "SELECT age, users FROM (SELECT age, COUNT(*) AS users FROM users GROUP BY age) AS subquery WHERE users > 1;"
 cursor.execute(query5)
 result5 = cursor.fetchall()
-print("Результат запиту 5:")
+print("Результат  запиту 5:")
 for row in result5:
     print(row[0], "|", row[1])
 
