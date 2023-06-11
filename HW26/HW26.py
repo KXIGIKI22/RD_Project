@@ -60,7 +60,7 @@ def generate_experience(experience):
 
 
 name = "Pavlo"
-about = "Short info abuot me"
+about = "Short info about me"
 tasks = [("Завдання 1", "5"), ("Завдання 2", "5"), ("Завдання 3", "5")]
 experience = [
     {
