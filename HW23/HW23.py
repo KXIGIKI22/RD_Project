@@ -3,7 +3,6 @@ import sqlite3
 conn = sqlite3.connect("/Users/pavlo/Documents/Python/book_store.sqlite")
 cursor = conn.cursor()
 
-
 create_users_table = """
 CREATE TABLE IF NOT EXISTS users (
   id INT PRIMARY KEY,

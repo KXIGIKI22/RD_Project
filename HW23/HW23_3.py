@@ -3,6 +3,7 @@ import sqlite3
 conn = sqlite3.connect("/Users/pavlo/Documents/Python/book_store.sqlite")
 cursor = conn.cursor()
 
+
 query = """
 SELECT users.id, users.first_name, users.last_name, books.title
 FROM users
