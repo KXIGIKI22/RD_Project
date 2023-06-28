@@ -1,50 +1,60 @@
 import requests
 import random
 
-def get_website_info(url):
-    response = requests.get(url)
+def make_website_request():
+    websites = [
+        "google.com",
+        "facebook.com",
+        "twitter.com",
+        "amazon.com",
+        "apple.com"
+    ]
+
+    random_website = random.choice(websites)
+    response = requests.get("http://" + random_website)
     status_code = response.status_code
-    website_name = url.split('//')[1].split('/')[0]
+    site_name = random_website
     html_length = len(response.text)
-    return status_code, website_name, html_length
 
-websites = [
-    "https://google.com",
-    "https://facebook.com",
-    "https://twitter.com",
-    "https://amazon.com",
-    "https://apple.com"
-]
+    print("Статус-код:", status_code)
+    print("Назва сайту:", site_name)
+    print("Довжина HTML-коду:", html_length)
 
-random_website = random.choice(websites)
+def get_weather(city):
+    geocoding_url = "https://api.open-meteo.com/v1/geocode?city=" + city
+    geocoding_response = requests.get(geocoding_url)
+    geocoding_data = geocoding_response.json()
 
-status_code, website_name, html_length = get_website_info(random_website)
+    if "status" in geocoding_data and geocoding_data["status"] == "OK":
+        latitude = geocoding_data["results"][0]["latitude"]
+        longitude = geocoding_data["results"][0]["longitude"]
 
-print("Website:", website_name)
-print("Status Code:", status_code)
-print("HTML Length:", html_length)
+        weather_url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}"
+        weather_response = requests.get(weather_url)
+        weather_data = weather_response.json()
 
-city = input("Введіть назву міста: ")
+        if "current_weather" in weather_data:
+            current_weather = weather_data["current_weather"]
+            temperature = current_weather["temperature"]
+            humidity = current_weather["humidity"]
+            wind_speed = current_weather["wind_speed"]
 
-geocoding_url = "https://api.open-meteo.com/v1/forecast/geocode"
-geocoding_params = {"location": city}
-geocoding_response = requests.get(geocoding_url, params=geocoding_params)
-geocoding_data = geocoding_response.json()
+            print("Температура:", temperature)
+            print("Вологість:", humidity)
+            print("Швидкість вітру:", wind_speed)
+    else:
+        print("Помилка при отриманні даних про геокодування")
 
-if "lat" in geocoding_data and "lon" in geocoding_data:
-    latitude = geocoding_data["lat"]
-    longitude = geocoding_data["lon"]
+def main():
+    choice = input("Виберіть опцію:\n1. Запит до сайту\n2. Погода\n")
 
-    weather_url = "https://api.open-meteo.com/v1/forecast"
-    weather_params = {"latitude": latitude, "longitude": longitude}
-    weather_response = requests.get(weather_url, params=weather_params)
-    weather_data = weather_response.json()
+    if choice == "1":
+        make_website_request()
+    elif choice == "2":
+        city = input("Введіть назву міста: ")
+        get_weather(city)
+    else:
+        print("Невірний вибір")
 
-    if "current_weather" in weather_data:
-        current_weather = weather_data["current_weather"]
-        print("Поточна погода у місті", city)
-        print("Температура:", current_weather["temperature"], "°C")
-        print("Вологість:", current_weather["humidity"], "%")
-        print("Швидкість вітру:", current_weather["wind_speed"], "м/с")
-else:
-    print("Неможливо знайти координати для міста", city)
+if __name__ == "__main__":
+    main()
