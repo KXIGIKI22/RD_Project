@@ -2,7 +2,7 @@ html_template = '''
 <!DOCTYPE html>
 <html>
 <head>
- <title>Мій профіль/title>
+ <title>Мій профіль/title>########
  <link 
    function addFriend() {
      var addButton = document.getElementById('addFriendButton');
