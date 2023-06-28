@@ -3,18 +3,7 @@ html_template = '''
 <html>
 <head>
  <title>Мій профіль/title>
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
- <style>
-   .friend-count {
-     font-size: 18px;
-     margin-bottom: 10px;
-   }
-   .message-button-color {
-     background-color: #ff0000;
-     color: #ffffff;
-   }
- </style>
- <script>
+ <link 
    function addFriend() {
      var addButton = document.getElementById('addFriendButton');
      addButton.disabled = true;
